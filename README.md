@@ -1,5 +1,4 @@
-# TutorMe
-Software Engineering Group Project
+# University of South Carolina - Upstate Tutoring Website
 
 <strong>STUDENT ACCOUNT:</strong> student@student.com</br>
 <strong>TUTOR ACCOUNT:</strong>    tutor@tutor.com</br>
