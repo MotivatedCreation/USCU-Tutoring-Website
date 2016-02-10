@@ -1,8 +1,5 @@
-<!--- Footer.php
-footer to be put on all the main pages
---->
-<link href="../../css/footer.css" rel="stylesheet">
-<link href="../../css/Global.css" rel="stylesheet">
+<link href="./app/css/footer.css" rel="stylesheet">
+<link href="./app/css/Global.css" rel="stylesheet">
 <div class="container" id="footer-content-container">
   <footer>
     <div class="row">

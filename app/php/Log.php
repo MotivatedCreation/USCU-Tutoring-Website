@@ -7,7 +7,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>TutorMe - Log</title>
 
-  <?php include('./Global.php'); ?>
+  <?php include('./global.php'); ?>
 
   <!-- <script type="text/javascript" src="../models/App.js"></script> -->
 

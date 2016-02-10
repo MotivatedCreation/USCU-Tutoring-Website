@@ -11,7 +11,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>TutorMe - Classes</title>
 
-  <?php include('./Global.php'); ?>
+  <?php include('./global.php'); ?>
 
   <!-- Bootstrap -->
   <link href="../../bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
