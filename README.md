@@ -5,12 +5,12 @@
 <strong>TEACHER ACCOUNT:</strong>  teacher@teacher.com</br>
 <strong>ADMIN ACCOUNT:</strong>    admin@admin.com
 
-####LIBRARIES:
+####LIBRARIES
 - <strong>Bootstrap 3.3.5 <em>(User Interface)</em></strong>
 <br />
 - <strong>AngularJS 2 <em>(Code Modularization and Maintainability)</em></strong>
 
-####LANGUAGES:
+####LANGUAGES
 - <strong>PHP <em>(Backend)</em></strong>
 <br />
 - <strong>Typescript <em>(Front End)</em></strong>
