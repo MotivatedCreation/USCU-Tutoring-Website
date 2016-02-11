@@ -14,7 +14,7 @@ ADMIN ACCOUNT:    admin@admin.com
 - <strong>CSS <em>(Front End)</em></strong>
 <br />
 - <strong>HTML <em>(Front End)</em></strong>
-
-POWERED BY <br />
+<br /><br />
+<strong>POWERED BY</strong> <br />
 ![Bootstrap 3.3.5][Bootstrap]
 [Bootstrap]: http://tradesouthwest.com/assets/icons/bootstrap-logo.png "Bootstrap 3.3.5"
