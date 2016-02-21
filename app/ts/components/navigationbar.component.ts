@@ -1,5 +1,5 @@
-/// <reference path="../jquery.d.ts" />
-/// <reference path="../bootstrap.d.ts" />
+/// <reference path="../libraries/jquery.d.ts" />
+/// <reference path="../libraries/bootstrap.d.ts" />
 
 import {Component, View} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
