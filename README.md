@@ -1,7 +1,20 @@
 # University of South Carolina - Upstate Tutoring Website
 
-<strong>STUDENT ACCOUNT:</strong> student@student.com</br>
-<strong>TUTOR ACCOUNT:</strong>    tutor@tutor.com</br>
-<strong>TEACHER ACCOUNT:</strong>  teacher@teacher.com</br>
-<strong>ADMIN ACCOUNT:</strong>    admin@admin.com
+####TEST ACCOUNTS <br />
+STUDENT ACCOUNT: student@student.com</br>
+TUTOR ACCOUNT:    tutor@tutor.com</br>
+TEACHER ACCOUNT:  teacher@teacher.com</br>
+ADMIN ACCOUNT:    admin@admin.com
 
+####LANGUAGES
+- <strong>PHP <em>(Backend)</em></strong>
+<br />
+- <strong>Typescript <em>(Front End)</em></strong>
+<br />
+- <strong>CSS <em>(Front End)</em></strong>
+<br />
+- <strong>HTML <em>(Front End)</em></strong>
+<br /><br />
+<strong>POWERED BY</strong> <br />
+![Bootstrap 3.3.5][Bootstrap]
+[Bootstrap]: http://tradesouthwest.com/assets/icons/bootstrap-logo.png "Bootstrap 3.3.5"
