@@ -1,15 +1,3 @@
-<!-- LoginOrSignUp.php
-  The login or signup Popup for logging in or signing up
--->
-
-<?php if (kCurrentFile == 'index.php'): ?>
-  <script type="text/javascript" src="./app/views/LoginView.js"></script>
-  <script type="text/javascript" src="./app/views/SignUpView.js"></script>
-<?php else: ?>
-  <script type="text/javascript" src="../views/LoginView.js"></script>
-  <script type="text/javascript" src="../views/SignUpView.js"></script>
-<?php endif; ?>
-
 <div class="modal fade" id="login-or-signUp-modal" tabindex="-1" role="dialog" aria-labelledby="login-or-signUp-modal-label">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

@@ -11,7 +11,10 @@
 
   <title>TutorMe - Home</title>
 
-  <?php include('./app/php/global.php'); ?>
+  <?php
+    include('./app/php/global.php');
+    include('./app/php/LoginOrSignUp.php');
+    ?>
 
   <link href="./app/css/index.css" rel="stylesheet">
   <link href="./app/css/Global.css" rel="stylesheet">
@@ -20,11 +23,8 @@
 </head>
 
 <body>
-  <!-- Container -->
-  <div class="container-fluid">
-    <navigationbar></navigationbar>
-  </div>
-  <!-- Container End -->
+
+  <app></app>
 
   <!-- footer -->
   <?php include('./app/php/footer.php'); ?>

@@ -1,12 +1,6 @@
-<!-- Global Variables -->
-
-<?php define('kCurrentFile', basename($_SERVER['PHP_SELF'])); ?>
-
-<!-- Global Variables End -->
-
 <!-- Webpage Icon -->
 
-<link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/ >
+<link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
 
 <!-- Webpage Icon End -->
 
@@ -30,6 +24,8 @@
 
 <!-- AngularJS -->
 
+<!-- 1. Load libraries -->
+
 <!-- Load libraries -->
 <!-- IE required polyfills, in this exact order -->
 <script src="./app/node_modules/es6-shim/es6-shim.min.js"></script>
@@ -40,17 +36,20 @@
 <script src="./app/node_modules/rxjs/bundles/Rx.js"></script>
 <script src="./app/node_modules/angular2/bundles/angular2.dev.js"></script>
 
-<!-- Configure SystemJS -->
+<base href="/">
+<script src="./app/node_modules/angular2/bundles/router.dev.js"></script>
+
+<!-- 2. Configure SystemJS -->
 <script>
-System.config({
-  packages: {
-    app: {
-      format: 'register',
-      defaultExtension: 'js'
+  System.config({
+    packages: {
+      app: {
+        format: 'register',
+        defaultExtension: 'js'
+      }
     }
-  }
-});
-System.import('app/ts/ts-build/main');
+  });
+  System.import('app/ts/ts-build/main').then(null, console.error.bind(console));
 </script>
 
 <!-- AngularJS End -->

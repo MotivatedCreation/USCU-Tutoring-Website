@@ -6,7 +6,7 @@ The Navigation Bar at the top of each page.
   <div class="container-fluid">
     <!-- TutorMe label/button : Takes you to the index-->
     <div class="navbar-header pull-left">
-      <a id="navigationbar-brand" class="navbar-brand">
+      <a [routerLink]="['Home']" id="navigationbar-brand" class="navbar-brand" (click)="updateUI()">
         <span style="margin-right:10px;" class="glyphicon glyphicon-education" aria-hidden="true"></span>
         TutorMe
       </a>
@@ -25,32 +25,32 @@ The Navigation Bar at the top of each page.
 
     <div class="collapse navbar-collapse" id="navigationbar-collapse">
       <ul class="nav navbar-nav pull-left">
-        <li id="log-navigationbar-list-item">
-          <a id="log-navigationbar-link" href="{{logURL}}">
+        <li id="tutor-log-navigationbar-list-item" (click)="activateListItem('tutor-log-navigationbar-list-item')">
+          <a [routerLink]="['TutorLog']" id="tutor-log-navigationbar-link">
             <div style="margin-right:10px;" class="glyphicon glyphicon-align-left"></div>
             Log
           </a>
         </li>
-        <li id="schedule-navigationbar-list-item">
-          <a id="schedule-navigationbar-link">
+        <li id="tutor-schedule-navigationbar-list-item" (click)="activateListItem('tutor-schedule-navigationbar-list-item')">
+          <a [routerLink]="['TutorSchedule']" id="tutor-schedule-navigationbar-link">
             <div style="margin-right:10px;" class="glyphicon glyphicon-calendar"></div>
             Schedule
           </a>
         </li>
-        <li id="tutors-navigationbar-list-item">
-          <a id="tutors-navigationbar-link">
+        <li id="tutors-navigationbar-list-item" (click)="activateListItem('tutors-navigationbar-list-item')">
+          <a [routerLink]="['Tutors']" id="tutors-navigationbar-link">
             <div style="margin-right:10px;" class="glyphicon glyphicon-user"></div>
             Tutors
           </a>
         </li>
-        <li id="assignments-navigationbar-list-item">
-          <a id="assignments-navigationbar-link">
+        <li id="assignments-navigationbar-list-item" (click)="activateListItem('assignments-navigationbar-list-item')">
+          <a [routerLink]="['Assignments']" id="assignments-navigationbar-link">
             <div style="margin-right:10px;" class="glyphicon glyphicon-file"></div>
             Assignments
           </a>
         </li>
-        <li id="admin-navigationbar-list-item">
-          <a id="admin-navigationbar-link">
+        <li id="admin-navigationbar-list-item" (click)="activateListItem('admin-navigationbar-list-item')">
+          <a [routerLink]="['Admin']" id="admin-navigationbar-link">
             <div style="margin-right:10px;" class="glyphicon glyphicon-lock"></div>
             Admin
           </a>
@@ -88,57 +88,10 @@ The Navigation Bar at the top of each page.
           </ul>
         </li>
         <li>
-          <button id="login-or-signUp-navigationbar-button" type="button" class="btn btn-primary">Login or Sign Up</button>
+          <button id="login-or-signUp-navigationbar-button" type="button" class="btn btn-primary" (click)="showAuthenticationModal()">Login or Sign Up</button>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
-
-<!-- Navbar Javascripts -->
-<?php if (kCurrentFile == 'index.php'): ?>
-  <script type="text/javascript" src="./app/views/NavigationbarView.js"></script>
-<?php else: ?>
-  <script type="text/javascript" src="../views/NavigationbarView.js"></script>
-<?php endif; ?>
-
-<script type="text/javascript">
-$(function()
-{
-  var currentPage = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
-
-  if (currentPage == 'Log.php') {
-    $('#log-navigationbar-list-item').addClass('active');
-  } else if (currentPage == 'Schedule.php') {
-    $('#schedule-navigationbar-list-item').addClass('active');
-  } else if (currentPage == 'Tutors.php') {
-    $('#tutors-navigationbar-list-item').addClass('active');
-  } else if (currentPage == 'Assignments.php') {
-    $('#assignments-navigationbar-list-item').addClass('active');
-  } else if (currentPage == 'Admin.php') {
-    $('#admin-navigationbar-list-item').addClass('active');
-  }
-
-  if (currentPage == '' || currentPage == 'index.php')
-  {
-    $('#navigationbar-brand').attr('href', 'index.php');
-    $('#log-navigationbar-link').attr('href', './app/php/Log.php');
-    $('#schedule-navigationbar-link').attr('href', './app/php/Schedule.php');
-    $('#tutors-navigationbar-link').attr('href', './app/php/Tutors.php');
-    $('#assignments-navigationbar-link').attr('href', './app/php/Assignments.php');
-    $('#admin-navigationbar-link').attr('href', './app/php/Admin.php');
-
-    $('#profile-navigationbar-link').attr('href', './app/php/Profile.php');
-  }
-  else {
-    $('#navigationbar-brand').attr('href', '../../index.php');
-    $('#log-navigationbar-link').attr('href', './Log.php');
-    $('#schedule-navigationbar-link').attr('href', './Schedule.php');
-    $('#tutors-navigationbar-link').attr('href', './Tutors.php');
-    $('#assignments-navigationbar-link').attr('href', './Assignments.php');
-    $('#admin-navigationbar-link').attr('href', './Admin.php');
-
-    $('#profile-navigationbar-link').attr('href', './Profile.php');
-  }
-});
-</script>
+<router-outlet></router-outlet>

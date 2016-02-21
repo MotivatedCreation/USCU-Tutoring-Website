@@ -1,4 +1,5 @@
 import {bootstrap} from 'angular2/platform/browser'
-import {Navigationbar} from './components/navigationbar.component'
+import {App} from './components/app.component'
+import {ROUTER_PROVIDERS} from 'angular2/router';
 
-bootstrap(Navigationbar);
+bootstrap(App, [ROUTER_PROVIDERS]);
