@@ -14,7 +14,7 @@
   <?php
     include('./app/php/global.php');
     include('./app/php/LoginOrSignUp.php');
-    ?>
+  ?>
 
   <link href="./app/css/index.css" rel="stylesheet">
   <link href="./app/css/Global.css" rel="stylesheet">

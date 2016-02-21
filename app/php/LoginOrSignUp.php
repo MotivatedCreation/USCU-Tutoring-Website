@@ -16,26 +16,6 @@
         <div class="row">
           <div id="signUp-modal-content-container" class="col-md-6">
             <form>
-
-<!-- Choosing account type -->
-<!--              <div class="form-group">
-                <label for="signUp-account-type-label" class="control-label">Account Type:</label>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="account-type-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <label id="account-type-dropdown-label" style="font-weight: normal;">Student</label>
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                    <li><a id="student-account-type" data-id="Student" href="#">Student</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a id="tutor-account-type" data-id="Tutor" href="#">Tutor</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a id="teacher-account-type" data-id="Teacher" href="#">Teacher</a></li>
-                  </ul>
-                </div>
-              </div>-->
-
-
               <div class="form-group">
                 <label for="signUp-first-name-label" class="control-label">First Name:</label>
                 <input type="text" class="form-control" id="signUp-first-name-input" value="" placeholder="e.g. Albert">

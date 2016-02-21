@@ -24,7 +24,8 @@ System.register(['angular2/core'], function(exports_1) {
                         selector: 'tutor-log',
                     }),
                     core_1.View({
-                        templateUrl: './app/html/templates/tutor-log.html'
+                        templateUrl: './app/html/templates/tutor-log.html',
+                        styleUrls: ['./app/css/log.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TutorLog);
