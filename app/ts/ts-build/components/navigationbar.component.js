@@ -1,7 +1,6 @@
 /// <reference path="../libraries/jquery.d.ts" />
 /// <reference path="../libraries/bootstrap.d.ts" />
-System.register(['angular2/core', 'angular2/router'], function(exports_1) {
-    "use strict";
+System.register(['angular2/core', 'angular2/router', './authentication-modal.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11,7 +10,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
+    var core_1, router_1, authentication_modal_component_1;
     var Navigationbar;
     return {
         setters:[
@@ -20,6 +19,9 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (authentication_modal_component_1_1) {
+                authentication_modal_component_1 = authentication_modal_component_1_1;
             }],
         execute: function() {
             Navigationbar = (function () {
@@ -37,18 +39,18 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                     $('#' + id).addClass('active');
                 };
                 Navigationbar.prototype.showAuthenticationModal = function () {
-                    $('#login-or-signUp-modal').modal('show');
+                    $('#sign-in-or-signUp-modal').modal('show');
                 };
                 Navigationbar = __decorate([
                     core_1.Component({
                         selector: 'navigationbar',
-                        directives: [router_1.ROUTER_DIRECTIVES],
+                        directives: [router_1.ROUTER_DIRECTIVES, authentication_modal_component_1.AuthenticationModal],
                         templateUrl: './app/html/templates/navigationbar.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Navigationbar);
                 return Navigationbar;
-            }());
+            })();
             exports_1("Navigationbar", Navigationbar);
         }
     }

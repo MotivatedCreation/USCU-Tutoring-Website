@@ -39,6 +39,8 @@
 <base href="/">
 <script src="./app/node_modules/angular2/bundles/router.dev.js"></script>
 
+<script src="https://code.angularjs.org/2.0.0-beta.1/http.js"></script>
+
 <!-- 2. Configure SystemJS -->
 <script>
   System.config({

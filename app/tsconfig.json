@@ -11,7 +11,5 @@
     "rootDir": "ts",
     "outDir": "ts/ts-build"
   },
-  "exclude": [
-    "node_modules" 
-  ]
+  "exclude": ["node_modules"]
 }

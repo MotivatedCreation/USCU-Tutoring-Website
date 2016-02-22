@@ -4,9 +4,11 @@
 import {Component, View} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
+import {AuthenticationModal} from './authentication-modal.component';
+
 @Component({
   selector: 'navigationbar',
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, AuthenticationModal],
   templateUrl: './app/html/templates/navigationbar.html'
 })
 
@@ -30,6 +32,6 @@ export class Navigationbar
 
   public showAuthenticationModal()
   {
-    $('#login-or-signUp-modal').modal('show');
+    $('#sign-in-or-signUp-modal').modal('show');
   }
 }

@@ -10,13 +10,12 @@ class Authentication extends Model
     @$email = $request->email;
     @$pass = $request->pass;
 
-    $statement = "INSERT INTO 'User' ('firstName', 'lastName', 'email', 'password')
-                  VALUES (:firstName, :lastName, :email, :password)";
+    $query = "CALL signUp(:firstName, :lastName, :email, :password)";
+    $statement = $database->prepare($query);
     $statement.bindParam(':firstName', $firstName, PDO::PARAM_STR);
     $statement.bindParam(':lastName', $lastName, PDO::PARAM_STR);
     $statement.bindParam(':email', $email, PDO::PARAM_STR);
     $statement.bindParam(':password', $password, PDO::PARAM_STR);
-    $statement = $database->prepare($query);
     $statement->execute();
 
     $error = $this->handleError($statement->errorInfo());
@@ -29,7 +28,7 @@ class Authentication extends Model
     @$email = $request->email;
     @$pass = $request->pass;
 
-    $query = "CALL sign_in(:email, :password)";
+    $query = "CALL signIn(:email, :password)";
     $statement = $database->prepare($query);
     $statement.bindParam(':email', $email, PDO::PARAM_STR);
     $statement.bindParam(':password', $password, PDO::PARAM_STR);
