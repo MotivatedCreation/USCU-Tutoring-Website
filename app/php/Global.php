@@ -1,6 +1,12 @@
+<!-- Style Sheets -->
+
+<link href="./app/css/global.css" rel="stylesheet">
+
+<!-- Style Sheets End -->
+
 <!-- Webpage Icon -->
 
-<link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
+<link rel='shortcut icon' href='./app/images/favicon.ico' type='image/x-icon'/ >
 
 <!-- Webpage Icon End -->
 

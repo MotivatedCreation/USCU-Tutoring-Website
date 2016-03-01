@@ -25,7 +25,7 @@ System.register(['angular2/core'], function(exports_1) {
                     }),
                     core_1.View({
                         templateUrl: './app/html/templates/tutor-schedule.html',
-                        styleUrls: ['./app/css/schedule.css']
+                        styleUrls: ['./app/css/tutor-schedule.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TutorSchedule);

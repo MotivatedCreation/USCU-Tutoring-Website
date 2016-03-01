@@ -6,7 +6,7 @@ import {Component, View} from 'angular2/core';
 
 @View({
   templateUrl: './app/html/templates/tutor-schedule.html',
-  styleUrls: ['./app/css/schedule.css']
+  styleUrls: ['./app/css/tutor-schedule.css']
 })
 
 export class TutorSchedule

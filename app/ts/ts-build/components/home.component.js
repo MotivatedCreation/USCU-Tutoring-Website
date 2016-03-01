@@ -24,7 +24,8 @@ System.register(['angular2/core'], function(exports_1) {
                         selector: 'home',
                     }),
                     core_1.View({
-                        templateUrl: './app/html/templates/home.html'
+                        templateUrl: './app/html/templates/home.html',
+                        styleUrls: ['./app/css/home.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Home);

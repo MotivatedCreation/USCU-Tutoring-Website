@@ -5,7 +5,8 @@ import {Component, View} from 'angular2/core';
 })
 
 @View({
-  templateUrl: './app/html/templates/profile.html'
+  templateUrl: './app/html/templates/profile.html',
+  styleUrls: ['./app/css/profile.css']
 })
 
 export class Profile

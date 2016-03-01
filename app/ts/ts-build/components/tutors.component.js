@@ -24,7 +24,8 @@ System.register(['angular2/core'], function(exports_1) {
                         selector: 'tutors',
                     }),
                     core_1.View({
-                        templateUrl: './app/html/templates/tutors.html'
+                        templateUrl: './app/html/templates/tutors.html',
+                        styleUrls: ['./app/css/tutors.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Tutors);

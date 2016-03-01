@@ -8,7 +8,7 @@
           </div>
           <div class="col-md-6">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 id="sign-in-modal-label">sign-in</h4>
+            <h4 id="sign-in-modal-label">Sign In</h4>
           </div>
         </div>
       </div>
@@ -18,19 +18,19 @@
             <form>
               <div class="form-group">
                 <label for="signUp-first-name-label" class="control-label">First Name:</label>
-                <input type="text" class="form-control" id="signUp-first-name-input" value="" placeholder="e.g. Albert">
+                <input type="text" class="form-control" id="signUp-first-name-input" value="" placeholder="e.g. Albert" #signUpFirstName (keyup)="setSignUpFirstName(signUpFirstName.value)">
               </div>
               <div class="form-group">
                 <label for="signUp-last-name-label" class="control-label">Last Name:</label>
-                <input type="text" class="form-control" id="signUp-last-name-input" value="" placeholder="e.g. Einstein">
+                <input type="text" class="form-control" id="signUp-last-name-input" value="" placeholder="e.g. Einstein" #signUpLastName (keyup)="setSignUpLastName(signUpLastName.value)">
               </div>
               <div class="form-group">
                 <label for="signUp-email-label" class="control-label">Email:</label>
-                <input type="text" class="form-control" id="signUp-email-input" value="" placeholder="e.g. whatis@nemail.com">
+                <input type="text" class="form-control" id="signUp-email-input" value="" placeholder="e.g. gotmail@email.uscupstate.edu" #signUpEmail (keyup)="setSignUpEmail(signUpEmail.value)">
               </div>
               <div class="form-group">
                 <label for="signUp-password-label" class="control-label">Password:</label>
-                <input type="password" class="form-control" id="signUp-password-input" value="">
+                <input type="password" class="form-control" id="signUp-password-input" value="" #signUpPassword (keyup)="setSignUpPassword(signUpPassword.value)">
               </div>
             </form>
           </div>
@@ -38,12 +38,12 @@
             <form id = "formID" onsubmit="sign-inClick();return false">
               <div class="form-group">
                 <label for="sign-in-email-label" class="control-label">Email:</label>
-                <input type="text" class="form-control" id="sign-in-email-input" value="" placeholder="e.g. whatis@nemail.com">
+                <input type="text" class="form-control" id="sign-in-email-input" value="" placeholder="e.g. whatis@nemail.com" #signInEmail (keyup)="setSignInEmail(signInEmail.value)">
               </div>
               <div class="form-group">
                 <label for="sign-in-password-label" class="control-label">Password:</label>
                 <a id="forgot-password-link" class="pull-right" href="#">Forgot Password?</a>
-                <input type="password" class="form-control" id="sign-in-password-input" value="">
+                <input type="password" class="form-control" id="sign-in-password-input" value="" #signInPassword (keyup)="setSignInPassword(signInPassword.value)">
                 <input type="submit" id="hideSubmit" style="display:none;">
               </div>
             </form>
@@ -63,20 +63,6 @@
     </div>
   </div>
 </div>
-
-<script type="text/template" id="invalid-input-alert-template">
-  <div id="invalid-input-alert" class="alert alert-danger">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <label id="invalid-input-alert-label" class="text-center"></label>
- </div>
-</script>
-
-<script type="text/template" id="success-alert-template">
-  <div id="success-alert" class="alert alert-success">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <label id="success-alert-label"></label>
- </div>
-</script>
 
 <script type="text/javascript">
 $(function() {

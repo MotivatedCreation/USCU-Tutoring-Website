@@ -5,7 +5,8 @@ import {Component, View} from 'angular2/core';
 })
 
 @View({
-  templateUrl: './app/html/templates/tutors.html'
+  templateUrl: './app/html/templates/tutors.html',
+  styleUrls: ['./app/css/tutors.css']
 })
 
 export class Tutors

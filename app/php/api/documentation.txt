@@ -1,0 +1,32 @@
+Services:
+Authentication
+
+Authentication
+actions {
+  head()
+  options()
+
+  signUp(hashMap):
+  validKeys {
+    email,
+    password,
+    firstName,
+    lastName
+  }
+
+  signIn(hashMap):
+  validKeys {
+    email,
+    password
+  }
+
+  signOut(hashMap):
+  validKeys {
+    accountID
+  }
+
+  deleteAccount(hashMap):
+  validKeys {
+    accountID
+  }
+}

@@ -1,0 +1,14 @@
+- Implement password encryption.
+- Implement sign in data validation.
+- Implement session tracking for sign up.
+- Implement sign in.
+- Implement tutor log backend.
+- Implement tutor schedule backend.
+- Implement tutor list backend.
+- Implement assignments.
+- Implement admin.
+- Implement check in.
+- Implement check out.
+- Implement available tutor.
+- Implement sign out.
+- Prepare for mobile.

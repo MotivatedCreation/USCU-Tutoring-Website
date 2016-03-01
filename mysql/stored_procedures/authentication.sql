@@ -3,11 +3,11 @@ DELIMITER //
 CREATE PROCEDURE signUp
 (IN firstName VARCHAR(32),
 		lastName VARCHAR(32),
-		password VARCHAR(128),
-		email VARCHAR(128))
+		email VARCHAR(128),
+		password VARCHAR(128))
 BEGIN
-			INSERT INTO 'User' (firstName, lastName, email, password)
-			VALUES (firstName, lastName, email, password)
+			INSERT INTO User (firstName, lastName, email, password)
+			VALUES (firstName, lastName, email, password);
 END
 
 //
@@ -21,7 +21,7 @@ CREATE PROCEDURE signIn
 BEGIN
 	SELECT email
 	FROM User
-	WHERE email = userEmail AND password = userPsassword;
+	WHERE email = userEmail AND password = userPassword;
 END
 
 //
