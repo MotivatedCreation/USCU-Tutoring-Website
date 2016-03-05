@@ -97,32 +97,24 @@ export class AuthenticationModal
   {
     if (!this.doesContainsOnlyCharacters(this.signUpFirstName))
     {
-      $('#sign-in-or-signUp-modal').prepend($('#invalid-input-alert').html());
-      $('#invalid-input-alert-label').text("Please enter a First Name.");
       $('#signUp-first-name-input').focus();
 
       return false;
     }
     else if (!this.doesContainsOnlyCharacters(this.signUpLastName))
     {
-      $(this.element).prepend($("#invalid-input-alert-template").html());
-      $('#invalid-input-alert-label').text("Please enter a Last Name.");
       $('#signUp-last-name-input').focus();
 
       return false;
     }
     else if (!this.isUSCUpstateEmail(this.signUpEmail))
     {
-      $(this.element).prepend($("#invalid-input-alert-template").html());
-      $('#invalid-input-alert-label').text("Please enter a valid Email.");
       $('#signUp-email-input').focus();
 
       return false;
     }
     else if (this.signUpPassword.length <= 0)
     {
-      $(this.element).prepend($("#invalid-input-alert-template").html());
-      $('#invalid-input-alert-label').text("Please enter a Password.");
       $('#signUp-password-input').focus();
 
       return false;
@@ -133,8 +125,6 @@ export class AuthenticationModal
 
   signUp()
   {
-    $("#invalid-input-alert").remove();
-
     if (this.signUpContainsValidData())
     {
       var service = 'Authentication';
@@ -155,20 +145,64 @@ export class AuthenticationModal
       var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      $('#sign-in-or-signUp-modal').modal('hide');
-      /*this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers })
+      this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers })
       .subscribe(
         (result: String) => {
+          this.clearInputs();
           $('#login-or-signUp-modal').modal('hide');
           console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
         }
-      );*/
+      );
     }
+  }
+
+  signInContainsValidData()
+  {
+    if (!this.isUSCUpstateEmail(this.signInEmail))
+    {
+      $('#sign-in-email-input').focus();
+
+      return false;
+    }
+    else if (this.signInPassword.length <= 0)
+    {
+      $('#sign-in-password-input').focus();
+
+      return false;
+    }
+
+    return true;
   }
 
   signIn()
   {
+    if (this.signInContainsValidData())
+    {
+      var service = 'Authentication';
+      var action = 'signIn';
 
+      var request = {'service': service,
+                     'action': action,
+                     'parameters': {
+                       'email': this.signInEmail,
+                       'password': this.signInPassword
+                     }
+                    };
+
+      var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
+
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers })
+      .subscribe(
+        (result: String) => {
+          this.clearInputs();
+          $('#sign-in-or-signUp-modal').modal('hide');
+          console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
+        }
+      );
+    }
   }
 
   handleError(error: Object)
