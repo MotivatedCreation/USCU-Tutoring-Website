@@ -149,7 +149,7 @@ export class AuthenticationModal
       .subscribe(
         (result: String) => {
           this.clearInputs();
-          $('#login-or-signUp-modal').modal('hide');
+          this.signIn();
           console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
         }
       );

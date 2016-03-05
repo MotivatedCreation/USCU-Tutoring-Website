@@ -111,7 +111,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers: headers })
                             .subscribe(function (result) {
                             _this.clearInputs();
-                            $('#login-or-signUp-modal').modal('hide');
+                            _this.signIn();
                             console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
                         });
                     }
