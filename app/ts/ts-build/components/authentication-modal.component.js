@@ -33,7 +33,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                     this.http = http;
                 }
                 AuthenticationModal.prototype.setSignUpEmail = function (email) {
-                    this.signUpEmail = email.value;
+                    this.signUpEmail = email;
                 };
                 AuthenticationModal.prototype.setSignUpPassword = function (password) {
                     this.signUpPassword = password;
@@ -82,6 +82,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         return false;
                     }
                     else if (!this.isUSCUpstateEmail(this.signUpEmail)) {
+                        console.log(this.signUpEmail);
                         $('#signUp-email-input').focus();
                         return false;
                     }

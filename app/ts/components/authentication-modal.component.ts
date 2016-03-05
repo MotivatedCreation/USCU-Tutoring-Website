@@ -32,9 +32,9 @@ export class AuthenticationModal
     this.http = http;
   }
 
-  setSignUpEmail(email: HTMLElement)
+  setSignUpEmail(email: string)
   {
-    this.signUpEmail = (<HTMLInputElement>email).value;
+    this.signUpEmail = email;
   }
 
   setSignUpPassword(password: string)
@@ -109,6 +109,8 @@ export class AuthenticationModal
     }
     else if (!this.isUSCUpstateEmail(this.signUpEmail))
     {
+      console.log(this.signUpEmail);
+
       $('#signUp-email-input').focus();
 
       return false;
