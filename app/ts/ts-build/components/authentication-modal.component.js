@@ -23,6 +23,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
         execute: function() {
             AuthenticationModal = (function () {
                 function AuthenticationModal(element, http) {
+                    this.baseURL = "http://tutor.local";
                     this.signUpEmail = '';
                     this.signUpPassword = '';
                     this.signUpFirstName = '';
@@ -109,7 +110,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
                         var headers = new http_1.Headers();
                         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-                        this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers: headers })
+                        this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers: headers })
                             .subscribe(function (result) {
                             _this.clearInputs();
                             $('#sign-in-or-signUp-modal').modal('hide');
@@ -143,7 +144,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
                         var headers = new http_1.Headers();
                         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-                        this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers: headers })
+                        this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers: headers })
                             .subscribe(function (result) {
                             _this.clearInputs();
                             $('#sign-in-or-signUp-modal').modal('hide');

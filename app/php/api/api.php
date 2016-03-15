@@ -4,9 +4,9 @@ include_once 'Authentication.php';
 
 try {
   $db_name  = 'tutoring_services_db';
-  $hostname = '127.0.0.1:3306';
+  $hostname = 'tutor.local:3306';
   $username = 'root';
-  $password = 'tacobell';
+  $password = '';
 
   $database = new PDO("mysql:
                        host=$hostname;

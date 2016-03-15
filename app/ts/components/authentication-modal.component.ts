@@ -15,6 +15,7 @@ import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 
 export class AuthenticationModal
 {
+  private baseURL = "http://tutor.local";
   private http: Http;
   private element: ElementRef;
 
@@ -147,7 +148,7 @@ export class AuthenticationModal
       var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers })
+      this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers })
       .subscribe(
         (result: String) => {
           this.clearInputs();
@@ -196,7 +197,7 @@ export class AuthenticationModal
       var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.post('http://usc.local/app/php/api/api.php', parameters, { headers })
+      this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers })
       .subscribe(
         (result: String) => {
           this.clearInputs();

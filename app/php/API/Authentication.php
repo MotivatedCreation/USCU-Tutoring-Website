@@ -4,13 +4,6 @@ include_once 'RESTObject.php';
 
 class Authentication extends RESTObject
 {
-  const $kUserIDKey = 'userID';
-  const $kEmailKey = 'email';
-  const $kPasswordKey = 'password';
-  const $kFirstNameKey = 'firstName';
-  const $kLastNameKey = 'lastName';
-  const $kDescriptionKey = 'description';
-
   public function http_get($database, $action, $parameters)
   {
     switch ($action)
@@ -22,6 +15,11 @@ class Authentication extends RESTObject
 
       case 'signOut': {
         $this->signOut($database, $parameters);
+      }
+      break;
+
+      case 'checkIfUserIsLoggedIn' {
+        $this->checkIfUserIsLoggedIn();
       }
       break;
 
@@ -91,14 +89,19 @@ class Authentication extends RESTObject
     }
   }
 
+  private function checkIfUserIsLoggedIn()
+  {
+    return isset($_SESSION['username']);
+  }
+
   private function signUp($database, $parameters)
   {
     $statement = "CALL signUp(:firstName, :lastName, :email, :password)";
     $statement = $database->prepare($statement);
-    $statement->bindParam(':email', $parameters[$kEmailKey], PDO::PARAM_STR);
-    $statement->bindParam(':password', $parameters[$kPasswordKey], PDO::PARAM_STR);
-    $statement->bindParam(':firstName', $parameters[$kFirstNameKey], PDO::PARAM_STR);
-    $statement->bindParam(':lastName', $parameters[$kLastNameKey], PDO::PARAM_STR);
+    $statement->bindParam(':email', $parameters['email'], PDO::PARAM_STR);
+    $statement->bindParam(':password', $parameters['password'], PDO::PARAM_STR);
+    $statement->bindParam(':firstName', $parameters['firstName'], PDO::PARAM_STR);
+    $statement->bindParam(':lastName', $parameters['lastName'], PDO::PARAM_STR);
     $statement->execute();
   }
 
@@ -106,9 +109,13 @@ class Authentication extends RESTObject
   {
     $query = "CALL signIn(:email, :password)";
     $statement = $database->prepare($query);
-    $statement->bindParam(':email', $parameters[$kEmailKey], PDO::PARAM_STR);
-    $statement->bindParam(':password', $parameters[$kPasswordKey], PDO::PARAM_STR);
+    $statement->bindParam(':email', $parameters['email'], PDO::PARAM_STR);
+    $statement->bindParam(':password', $parameters['password'], PDO::PARAM_STR);
     $statement->execute();
+
+    if ($statement->rowCount() == 1) {
+      $_SESSION['email'] = $parameters['email'];
+    }
 
     $error = $this->handleError($statement->errorInfo());
   }
@@ -117,7 +124,7 @@ class Authentication extends RESTObject
   {
     $query = "CALL signOut(:accountID)";
     $statement = $database->prepare($query);
-    $statement->bindParam(':accountID', $parameters[$kUserIDKey], PDO::PARAM_INT);
+    $statement->bindParam(':accountID', $parameters['userID'], PDO::PARAM_INT);
     $statement->execute();
 
     $error = $this->handleError($statement->errorInfo());
@@ -127,7 +134,7 @@ class Authentication extends RESTObject
   {
     $query = "CALL deleteAccount(:accountID)";
     $statement = $database->prepare($query);
-    $statement->bindParam(':accountID', $parameters[$kUserIDKey], PDO::PARAM_INT);
+    $statement->bindParam(':accountID', $parameters['userID'], PDO::PARAM_INT);
     $statement->execute();
 
     $error = $this->handleError($statement->errorInfo());
