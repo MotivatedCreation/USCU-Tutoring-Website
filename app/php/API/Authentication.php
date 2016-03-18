@@ -30,7 +30,7 @@ class Authentication extends RESTObject
       break;
 
       case 'signOut': {
-        $this->signOut($database, $parameters);
+        $this->signOut($database);
       }
       break;
 
@@ -112,14 +112,9 @@ class Authentication extends RESTObject
     $error = $this->handleError($statement->errorInfo());
   }
 
-  private function signOut($database, $parameters)
+  private function signOut($database)
   {
-    $query = "CALL signOut(:accountID)";
-    $statement = $database->prepare($query);
-    $statement->bindParam(':accountID', $parameters['userID'], PDO::PARAM_INT);
-    $statement->execute();
-
-    $error = $this->handleError($statement->errorInfo());
+    session_destroy();
   }
 
   private function deleteAccount($database, $parameters)

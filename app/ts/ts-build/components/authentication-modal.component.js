@@ -1,6 +1,6 @@
 /// <reference path="../libraries/jquery.d.ts" />
 /// <reference path="../libraries/bootstrap.d.ts" />
-System.register(['angular2/core', 'angular2/http'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', '../global'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, global_1;
     var AuthenticationModal;
     return {
         setters:[
@@ -19,11 +19,13 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (global_1_1) {
+                global_1 = global_1_1;
             }],
         execute: function() {
             AuthenticationModal = (function () {
                 function AuthenticationModal(element, http) {
-                    this.baseURL = "http://usc.local";
                     this.signUpEmail = '';
                     this.signUpPassword = '';
                     this.signUpFirstName = '';
@@ -110,11 +112,13 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
                         var headers = new http_1.Headers();
                         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-                        this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers: headers })
+                        this.http.post(global_1.Global.BASE_URL + '/app/php/api/api.php', parameters, { headers: headers })
                             .subscribe(function (result) {
                             console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
                             _this.clearInputs();
-                            $('#sign-in-or-signUp-modal').modal('hide');
+                            _this.setSignInEmail(_this.signUpEmail);
+                            _this.setSignInPassword(_this.signUpPassword);
+                            _this.signIn();
                         });
                     }
                 };
@@ -144,10 +148,10 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
                         var headers = new http_1.Headers();
                         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-                        this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers: headers })
+                        this.http.post(global_1.Global.BASE_URL + '/app/php/api/api.php', parameters, { headers: headers })
                             .subscribe(function (result) {
                             _this.clearInputs();
-                            $('#sign-in-or-signUp-modal').modal('hide');
+                            location.reload();
                             console.log('[authentication-modal.component] signIn()\n' + JSON.stringify(result, null, 4));
                         });
                     }

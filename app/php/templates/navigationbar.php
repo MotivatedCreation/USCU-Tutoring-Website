@@ -77,7 +77,7 @@
               </a>
             </li>
             <li>
-              <a id="logout-navigationbar-link" href="http://localhost/TutorMe/index.php">
+              <a id="logout-navigationbar-link" href="#" (click)="signOut()">
                 <div style="margin-right:10px;" class="glyphicon glyphicon-log-out"></div>
                 Logout
               </a>

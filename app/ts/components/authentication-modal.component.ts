@@ -4,6 +4,8 @@
 import {Component, View, ElementRef} from 'angular2/core';
 import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 
+import {Global} from '../global'
+
 @Component({
   viewProviders: [HTTP_PROVIDERS],
   selector: 'authentication-modal'
@@ -15,7 +17,6 @@ import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 
 export class AuthenticationModal
 {
-  private baseURL = "http://usc.local";
   private http: Http;
   private element: ElementRef;
 
@@ -148,13 +149,15 @@ export class AuthenticationModal
       var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers })
+      this.http.post(Global.BASE_URL + '/app/php/api/api.php', parameters, { headers })
       .subscribe(
         (result: String) => {
           console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
 
           this.clearInputs();
-          $('#sign-in-or-signUp-modal').modal('hide');
+          this.setSignInEmail(this.signUpEmail);
+          this.setSignInPassword(this.signUpPassword);
+          this.signIn();
         }
       );
     }
@@ -198,11 +201,11 @@ export class AuthenticationModal
       var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers })
+      this.http.post(Global.BASE_URL + '/app/php/api/api.php', parameters, { headers })
       .subscribe(
         (result: String) => {
           this.clearInputs();
-          $('#sign-in-or-signUp-modal').modal('hide');
+          location.reload();
           console.log('[authentication-modal.component] signIn()\n' + JSON.stringify(result, null, 4));
         }
       );
