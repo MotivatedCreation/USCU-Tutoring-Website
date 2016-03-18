@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1) {
                         selector: 'assignments',
                     }),
                     core_1.View({
-                        templateUrl: './app/html/templates/assignments.html',
+                        templateUrl: './app/php/templates/assignments.php',
                         styleUrls: ['./app/css/assignments.css']
                     }), 
                     __metadata('design:paramtypes', [])

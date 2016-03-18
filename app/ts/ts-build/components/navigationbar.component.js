@@ -45,7 +45,7 @@ System.register(['angular2/core', 'angular2/router', './authentication-modal.com
                     core_1.Component({
                         selector: 'navigationbar',
                         directives: [router_1.ROUTER_DIRECTIVES, authentication_modal_component_1.AuthenticationModal],
-                        templateUrl: './app/html/templates/navigationbar.html'
+                        templateUrl: './app/php/templates/navigationbar.php'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Navigationbar);

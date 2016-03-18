@@ -87,7 +87,7 @@ System.register(['angular2/core', 'angular2/router', './home.component', './tuto
                     core_1.Component({
                         selector: 'app',
                         directives: [navigationbar_component_1.Navigationbar],
-                        templateUrl: './app/html/templates/app.html'
+                        templateUrl: './app/php/templates/app.php'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], App);

@@ -23,7 +23,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
         execute: function() {
             AuthenticationModal = (function () {
                 function AuthenticationModal(element, http) {
-                    this.baseURL = "http://tutor.local";
+                    this.baseURL = "http://usc.local";
                     this.signUpEmail = '';
                     this.signUpPassword = '';
                     this.signUpFirstName = '';
@@ -112,9 +112,9 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         headers.append('Content-Type', 'application/x-www-form-urlencoded');
                         this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers: headers })
                             .subscribe(function (result) {
+                            console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
                             _this.clearInputs();
                             $('#sign-in-or-signUp-modal').modal('hide');
-                            console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
                         });
                     }
                 };
@@ -148,12 +148,9 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                             .subscribe(function (result) {
                             _this.clearInputs();
                             $('#sign-in-or-signUp-modal').modal('hide');
-                            console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
+                            console.log('[authentication-modal.component] signIn()\n' + JSON.stringify(result, null, 4));
                         });
                     }
-                };
-                AuthenticationModal.prototype.handleError = function (error) {
-                    console.error('[authentication-modal.component] Error: ' + JSON.stringify(error, null, 4));
                 };
                 AuthenticationModal = __decorate([
                     core_1.Component({
@@ -161,7 +158,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                         selector: 'authentication-modal'
                     }),
                     core_1.View({
-                        templateUrl: './app/html/templates/authentication-modal.html'
+                        templateUrl: './app/php/templates/authentication-modal.php'
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef, http_1.Http])
                 ], AuthenticationModal);

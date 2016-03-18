@@ -51,7 +51,7 @@ import {Navigationbar} from './navigationbar.component';
 @Component({
   selector: 'app',
   directives: [Navigationbar],
-  templateUrl: './app/html/templates/app.html'
+  templateUrl: './app/php/templates/app.php'
 })
 
 export class App

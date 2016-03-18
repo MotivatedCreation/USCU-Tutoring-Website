@@ -19,7 +19,7 @@ CREATE PROCEDURE signIn
 (IN userEmail VARCHAR(128),
     userPassword VARCHAR(128))
 BEGIN
-	SELECT email
+	SELECT userID, accountType, firstName, lastName, email, description
 	FROM User
 	WHERE email = userEmail AND password = userPassword;
 END

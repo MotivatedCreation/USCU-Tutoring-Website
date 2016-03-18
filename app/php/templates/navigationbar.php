@@ -1,5 +1,7 @@
 <authentication-modal></authentication-modal>
 
+<?php session_start(); ?>
+
 <nav id="navigationbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- The Navigation Bar -->
   <div class="container-fluid">
@@ -11,48 +13,49 @@
       </a>
     </div>
 
-    <div class="navbar-header pull-right">
-      <button style="margin-left: 30px;" type="button" class="navbar-toggle btn btn-default" data-toggle="collapse" data-target="#navigationbar-collapse" aria-expanded="false">
-        <span class="glyphicon glyphicon-th-large"></span>
-      </button>
-    </div>
-
-    <div class="collapse navbar-collapse" id="navigationbar-collapse">
-      <ul class="nav navbar-nav pull-left">
-        <li id="tutor-log-navigationbar-list-item" (click)="activateListItem('tutor-log-navigationbar-list-item')">
-          <a [routerLink]="['TutorLog']" id="tutor-log-navigationbar-link">
-            <div style="margin-right:10px;" class="glyphicon glyphicon-align-left"></div>
-            Log
-          </a>
-        </li>
-        <li id="tutor-schedule-navigationbar-list-item" (click)="activateListItem('tutor-schedule-navigationbar-list-item')">
-          <a [routerLink]="['TutorSchedule']" id="tutor-schedule-navigationbar-link">
-            <div style="margin-right:10px;" class="glyphicon glyphicon-calendar"></div>
-            Schedule
-          </a>
-        </li>
-        <li id="tutors-navigationbar-list-item" (click)="activateListItem('tutors-navigationbar-list-item')">
-          <a [routerLink]="['Tutors']" id="tutors-navigationbar-link">
-            <div style="margin-right:10px;" class="glyphicon glyphicon-user"></div>
-            Tutors
-          </a>
-        </li>
+    <ul class="nav navbar-nav pull-left">
+      <li id="tutor-log-navigationbar-list-item" (click)="activateListItem('tutor-log-navigationbar-list-item')">
+        <a [routerLink]="['TutorLog']" id="tutor-log-navigationbar-link">
+          <div style="margin-right:10px;" class="glyphicon glyphicon-align-left"></div>
+          Log
+        </a>
+      </li>
+      <li id="tutor-schedule-navigationbar-list-item" (click)="activateListItem('tutor-schedule-navigationbar-list-item')">
+        <a [routerLink]="['TutorSchedule']" id="tutor-schedule-navigationbar-link">
+          <div style="margin-right:10px;" class="glyphicon glyphicon-calendar"></div>
+          Schedule
+        </a>
+      </li>
+      <li id="tutors-navigationbar-list-item" (click)="activateListItem('tutors-navigationbar-list-item')">
+        <a [routerLink]="['Tutors']" id="tutors-navigationbar-link">
+          <div style="margin-right:10px;" class="glyphicon glyphicon-user"></div>
+          Tutors
+        </a>
+      </li>
+      <?php if (isset($_SESSION['user']) && $_SESSION['user'] && $_SESSION['user']['accountType'] == 1): ?>
         <li id="assignments-navigationbar-list-item" (click)="activateListItem('assignments-navigationbar-list-item')">
           <a [routerLink]="['Assignments']" id="assignments-navigationbar-link">
             <div style="margin-right:10px;" class="glyphicon glyphicon-file"></div>
             Assignments
           </a>
         </li>
+      <?php endif ?>
+      <?php if (isset($_SESSION['user']) && $_SESSION['user'] && $_SESSION['user']['accountType'] == 3): ?>
         <li id="admin-navigationbar-list-item" (click)="activateListItem('admin-navigationbar-list-item')">
           <a [routerLink]="['Admin']" id="admin-navigationbar-link">
-            <div style="margin-right:10px;" class="glyphicon glyphicon-lock"></div>
+            <div style="margin-right: 10px;" class="glyphicon glyphicon-lock"></div>
             Admin
           </a>
         </li>
-      </ul>
+      <?php endif ?>
+    </ul>
 
-      <ul class="nav navbar-nav pull-right">
-        <li class="dropdown">
+    <div class="nav navbar-nav pull-right">
+      <?php if (isset($_SESSION['user'])): ?>
+        <div class="dropdown pull-right">
+          <button style="margin-top: 8px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-th-large"></span>
+          </button>
           <a id="username-navigationbar-dropdown" class="dropdown-toggle" type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
           <ul class="dropdown-menu">
             <li>
@@ -80,12 +83,11 @@
               </a>
             </li>
           </ul>
-        </li>
-        <li>
-          <button id="login-or-signUp-navigationbar-button" type="button" class="btn btn-primary" (click)="showAuthenticationModal()">Login or Sign Up</button>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+        </div>
+      <?php else: ?>
+        <button id="login-or-signUp-navigationbar-button" type="button" class="btn btn-primary" (click)="showAuthenticationModal()">Login or Sign Up</button>
+      <?php endif ?>
+    </div>
   </div>
 </nav>
 

@@ -9,7 +9,7 @@ import {AuthenticationModal} from './authentication-modal.component';
 @Component({
   selector: 'navigationbar',
   directives: [ROUTER_DIRECTIVES, AuthenticationModal],
-  templateUrl: './app/html/templates/navigationbar.html'
+  templateUrl: './app/php/templates/navigationbar.php'
 })
 
 export class Navigationbar

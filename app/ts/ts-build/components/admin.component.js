@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1) {
                         selector: 'admin',
                     }),
                     core_1.View({
-                        templateUrl: './app/html/templates/admin.html',
+                        templateUrl: './app/php/templates/admin.php',
                         styleUrls: ['./app/css/admin.css']
                     }), 
                     __metadata('design:paramtypes', [])

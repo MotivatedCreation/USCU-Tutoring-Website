@@ -4,15 +4,17 @@ include_once 'Authentication.php';
 
 try {
   $db_name  = 'tutoring_services_db';
-  $hostname = 'tutor.local:3306';
+  $hostname = 'usc.local:3306';
   $username = 'root';
-  $password = '';
+  $password = 'tacobell';
 
   $database = new PDO("mysql:
                        host=$hostname;
                        dbname=$db_name",
                        $username, $password,
                        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+  session_start();
 }
 catch (PDOException $exception) {
   echo $exception;
@@ -53,7 +55,7 @@ switch ($_SERVER['REQUEST_METHOD'])
   break;
 
   default: {
-    header("HTTP/1.0 405 Method Not Allowed");
+    header("HTTP/1.0 405 Invalid Method");
   }
   break;
 }

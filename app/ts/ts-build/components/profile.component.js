@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1) {
                         selector: 'profile',
                     }),
                     core_1.View({
-                        templateUrl: './app/html/templates/profile.html',
+                        templateUrl: './app/php/templates/profile.php',
                         styleUrls: ['./app/css/profile.css']
                     }), 
                     __metadata('design:paramtypes', [])

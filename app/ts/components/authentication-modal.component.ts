@@ -10,12 +10,12 @@ import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 })
 
 @View({
-  templateUrl: './app/html/templates/authentication-modal.html'
+  templateUrl: './app/php/templates/authentication-modal.php'
 })
 
 export class AuthenticationModal
 {
-  private baseURL = "http://tutor.local";
+  private baseURL = "http://usc.local";
   private http: Http;
   private element: ElementRef;
 
@@ -151,9 +151,10 @@ export class AuthenticationModal
       this.http.post(this.baseURL + '/app/php/api/api.php', parameters, { headers })
       .subscribe(
         (result: String) => {
+          console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
+
           this.clearInputs();
           $('#sign-in-or-signUp-modal').modal('hide');
-          console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
         }
       );
     }
@@ -202,14 +203,9 @@ export class AuthenticationModal
         (result: String) => {
           this.clearInputs();
           $('#sign-in-or-signUp-modal').modal('hide');
-          console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
+          console.log('[authentication-modal.component] signIn()\n' + JSON.stringify(result, null, 4));
         }
       );
     }
-  }
-
-  handleError(error: Object)
-  {
-    console.error('[authentication-modal.component] Error: ' + JSON.stringify(error, null, 4));
   }
 }
