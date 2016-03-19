@@ -32,15 +32,14 @@
           Tutors
         </a>
       </li>
-      <?php if (isset($_SESSION['user']) && $_SESSION['user'] && $_SESSION['user']['accountType'] == 1): ?>
+      <?php if (isset($_SESSION['user']) && $_SESSION['user']['accountType'] == 1): ?>
         <li id="assignments-navigationbar-list-item" (click)="activateListItem('assignments-navigationbar-list-item')">
           <a [routerLink]="['Assignments']" id="assignments-navigationbar-link">
             <div style="margin-right:10px;" class="glyphicon glyphicon-file"></div>
             Assignments
           </a>
         </li>
-      <?php endif ?>
-      <?php if (isset($_SESSION['user']) && $_SESSION['user'] && $_SESSION['user']['accountType'] == 3): ?>
+      <?php elseif (isset($_SESSION['user']) && $_SESSION['user']['accountType'] == 3): ?>
         <li id="admin-navigationbar-list-item" (click)="activateListItem('admin-navigationbar-list-item')">
           <a [routerLink]="['Admin']" id="admin-navigationbar-link">
             <div style="margin-right: 10px;" class="glyphicon glyphicon-lock"></div>
@@ -59,25 +58,13 @@
           <a id="username-navigationbar-dropdown" class="dropdown-toggle" type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
           <ul class="dropdown-menu">
             <li>
-              <a id="profile-navigationbar-link">
+              <a [routerLink]="['Account']" id="profile-navigationbar-link" href="#">
                 <div style="margin-right:10px;" class="glyphicon glyphicon-info-sign"></div>
                 Account
               </a>
             </li>
             <li>
-              <a id="check-in-navigationbar-link" href="#">
-                <div style="margin-right:10px;" class="glyphicon glyphicon-check"></div>
-                Check in
-              </a>
-            </li>
-            <li>
-              <a id="check-out-navigationbar-link" href="#">
-                <div style="margin-right:10px;" class="glyphicon glyphicon-unchecked"></div>
-                Check out
-              </a>
-            </li>
-            <li>
-              <a id="logout-navigationbar-link" href="#" (click)="signOut()">
+              <a [routerLink]="['Home']" id="logout-navigationbar-link" href="#" (click)="signOut()">
                 <div style="margin-right:10px;" class="glyphicon glyphicon-log-out"></div>
                 Logout
               </a>

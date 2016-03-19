@@ -1,6 +1,6 @@
 /// <reference path="../libraries/jquery.d.ts" />
 /// <reference path="../libraries/bootstrap.d.ts" />
-System.register(['angular2/core', 'angular2/http', '../global'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', '../global', '../services/authentication.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', '../global'], function(export
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, global_1;
+    var core_1, http_1, global_1, Authentication;
     var AuthenticationModal;
     return {
         setters:[
@@ -22,36 +22,30 @@ System.register(['angular2/core', 'angular2/http', '../global'], function(export
             },
             function (global_1_1) {
                 global_1 = global_1_1;
+            },
+            function (Authentication_1) {
+                Authentication = Authentication_1;
             }],
         execute: function() {
             AuthenticationModal = (function () {
                 function AuthenticationModal(element, http) {
-                    this.signUpEmail = '';
-                    this.signUpPassword = '';
-                    this.signUpFirstName = '';
-                    this.signUpLastName = '';
-                    this.signInEmail = '';
-                    this.signInPassword = '';
-                    this.element = element;
+                    this.firstName = '';
+                    this.lastName = '';
+                    this.email = '';
+                    this.password = '';
                     this.http = http;
                 }
-                AuthenticationModal.prototype.setSignUpEmail = function (email) {
-                    this.signUpEmail = email;
+                AuthenticationModal.prototype.setEmail = function (email) {
+                    this.email = email;
                 };
-                AuthenticationModal.prototype.setSignUpPassword = function (password) {
-                    this.signUpPassword = password;
+                AuthenticationModal.prototype.setPassword = function (password) {
+                    this.password = password;
                 };
-                AuthenticationModal.prototype.setSignUpFirstName = function (firstName) {
-                    this.signUpFirstName = firstName;
+                AuthenticationModal.prototype.setFirstName = function (firstName) {
+                    this.firstName = firstName;
                 };
-                AuthenticationModal.prototype.setSignUpLastName = function (lastName) {
-                    this.signUpLastName = lastName;
-                };
-                AuthenticationModal.prototype.setSignInEmail = function (email) {
-                    this.signInEmail = email;
-                };
-                AuthenticationModal.prototype.setSignInPassword = function (password) {
-                    this.signInPassword = password;
+                AuthenticationModal.prototype.setLastName = function (lastName) {
+                    this.lastName = lastName;
                 };
                 AuthenticationModal.prototype.clearInputs = function () {
                     $('#sign-in-email-input').val("");
@@ -76,20 +70,19 @@ System.register(['angular2/core', 'angular2/http', '../global'], function(export
                         return false;
                 };
                 AuthenticationModal.prototype.signUpContainsValidData = function () {
-                    if (!this.doesContainsOnlyCharacters(this.signUpFirstName)) {
+                    if (!this.doesContainsOnlyCharacters(this.firstName)) {
                         $('#signUp-first-name-input').focus();
                         return false;
                     }
-                    else if (!this.doesContainsOnlyCharacters(this.signUpLastName)) {
+                    else if (!this.doesContainsOnlyCharacters(this.lastName)) {
                         $('#signUp-last-name-input').focus();
                         return false;
                     }
-                    else if (!this.isUSCUpstateEmail(this.signUpEmail)) {
-                        console.log(this.signUpEmail);
+                    else if (!this.isUSCUpstateEmail(this.email)) {
                         $('#signUp-email-input').focus();
                         return false;
                     }
-                    else if (this.signUpPassword.length <= 0) {
+                    else if (this.password.length <= 0) {
                         $('#signUp-password-input').focus();
                         return false;
                     }
@@ -98,61 +91,33 @@ System.register(['angular2/core', 'angular2/http', '../global'], function(export
                 AuthenticationModal.prototype.signUp = function () {
                     var _this = this;
                     if (this.signUpContainsValidData()) {
-                        var service = 'Authentication';
-                        var action = 'signUp';
-                        var request = { 'service': service,
-                            'action': action,
-                            'parameters': {
-                                'email': this.signUpEmail,
-                                'password': this.signUpPassword,
-                                'firstName': this.signUpFirstName,
-                                'lastName': this.signUpLastName
-                            }
-                        };
-                        var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
-                        var headers = new http_1.Headers();
-                        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-                        this.http.post(global_1.Global.BASE_URL + '/app/php/api/api.php', parameters, { headers: headers })
-                            .subscribe(function (result) {
+                        Authentication.signUp(this.http, this.firstName, this.lastName, this.email, this.password, function (result) {
                             console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
-                            _this.clearInputs();
-                            _this.setSignInEmail(_this.signUpEmail);
-                            _this.setSignInPassword(_this.signUpPassword);
-                            _this.signIn();
+                            _this.setEmail(_this.email);
+                            _this.setPassword(_this.password);
+                            _this.signIn(false);
                         });
                     }
                 };
                 AuthenticationModal.prototype.signInContainsValidData = function () {
-                    if (!this.isUSCUpstateEmail(this.signInEmail)) {
+                    if (!this.isUSCUpstateEmail(this.email)) {
                         $('#sign-in-email-input').focus();
                         return false;
                     }
-                    else if (this.signInPassword.length <= 0) {
+                    else if (this.password.length <= 0) {
                         $('#sign-in-password-input').focus();
                         return false;
                     }
                     return true;
                 };
-                AuthenticationModal.prototype.signIn = function () {
+                AuthenticationModal.prototype.signIn = function (shouldValidate) {
                     var _this = this;
-                    if (this.signInContainsValidData()) {
-                        var service = 'Authentication';
-                        var action = 'signIn';
-                        var request = { 'service': service,
-                            'action': action,
-                            'parameters': {
-                                'email': this.signInEmail,
-                                'password': this.signInPassword
-                            }
-                        };
-                        var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
-                        var headers = new http_1.Headers();
-                        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-                        this.http.post(global_1.Global.BASE_URL + '/app/php/api/api.php', parameters, { headers: headers })
-                            .subscribe(function (result) {
-                            _this.clearInputs();
-                            location.reload();
+                    if (shouldValidate === void 0) { shouldValidate = true; }
+                    if (!shouldValidate || this.signInContainsValidData()) {
+                        Authentication.signIn(this.http, this.email, this.password, function (result) {
                             console.log('[authentication-modal.component] signIn()\n' + JSON.stringify(result, null, 4));
+                            _this.clearInputs();
+                            location.href = global_1.Global.BASE_URL;
                         });
                     }
                 };

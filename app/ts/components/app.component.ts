@@ -42,8 +42,8 @@ import {Navigationbar} from './navigationbar.component';
     component: Admin
   },
   {
-    path: '/profile',
-    name: 'Profile',
+    path: '/account',
+    name: 'Account',
     component: Profile
   }
 ])
@@ -56,5 +56,4 @@ import {Navigationbar} from './navigationbar.component';
 
 export class App
 {
-
 }

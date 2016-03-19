@@ -11,5 +11,13 @@ import {Component, View} from 'angular2/core';
 
 export class Profile
 {
+  public editDescription()
+  {
 
+  }
+
+  public saveDescription()
+  {
+
+  }
 }

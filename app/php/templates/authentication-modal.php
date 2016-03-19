@@ -18,19 +18,19 @@
             <form>
               <div class="form-group">
                 <label for="signUp-first-name-label" class="control-label">First Name:</label>
-                <input type="text" class="form-control" id="signUp-first-name-input" value="" placeholder="e.g. Albert" #signUpFirstName (keyup)="setSignUpFirstName(signUpFirstName.value)">
+                <input type="text" class="form-control" id="signUp-first-name-input" value="" placeholder="e.g. Albert" #signUpFirstName (keyup)="setFirstName(signUpFirstName.value)">
               </div>
               <div class="form-group">
                 <label for="signUp-last-name-label" class="control-label">Last Name:</label>
-                <input type="text" class="form-control" id="signUp-last-name-input" value="" placeholder="e.g. Einstein" #signUpLastName (keyup)="setSignUpLastName(signUpLastName.value)">
+                <input type="text" class="form-control" id="signUp-last-name-input" value="" placeholder="e.g. Einstein" #signUpLastName (keyup)="setLastName(signUpLastName.value)">
               </div>
               <div class="form-group">
                 <label for="signUp-email-label" class="control-label">Email:</label>
-                <input type="text" class="form-control" id="signUp-email-input" value="" placeholder="e.g. gotmail@email.uscupstate.edu" #signUpEmail (keyup)="setSignUpEmail(signUpEmail.value)">
+                <input type="text" class="form-control" id="signUp-email-input" value="" placeholder="e.g. gotmail@email.uscupstate.edu" #signUpEmail (keyup)="setEmail(signUpEmail.value)">
               </div>
               <div class="form-group">
                 <label for="signUp-password-label" class="control-label">Password:</label>
-                <input type="password" class="form-control" id="signUp-password-input" value="" #signUpPassword (keyup)="setSignUpPassword(signUpPassword.value)">
+                <input type="password" class="form-control" id="signUp-password-input" value="" #signUpPassword (keyup)="setPassword(signUpPassword.value)">
               </div>
             </form>
           </div>
@@ -38,12 +38,12 @@
             <form id = "formID">
               <div class="form-group">
                 <label for="sign-in-email-label" class="control-label">Email:</label>
-                <input type="text" class="form-control" id="sign-in-email-input" value="" placeholder="e.g. gotmail@email.uscupstate.edu" #signInEmail (keyup)="setSignInEmail(signInEmail.value)">
+                <input type="text" class="form-control" id="sign-in-email-input" value="" placeholder="e.g. gotmail@email.uscupstate.edu" #signInEmail (keyup)="setEmail(signInEmail.value)">
               </div>
               <div class="form-group">
                 <label for="sign-in-password-label" class="control-label">Password:</label>
                 <a id="forgot-password-link" class="pull-right" href="#">Forgot Password?</a>
-                <input type="password" class="form-control" id="sign-in-password-input" value="" #signInPassword (keyup)="setSignInPassword(signInPassword.value)">
+                <input type="password" class="form-control" id="sign-in-password-input" value="" #signInPassword (keyup)="setPassword(signInPassword.value)">
                 <input type="submit" id="hideSubmit" style="display:none;">
               </div>
             </form>
@@ -56,7 +56,7 @@
             <button id="signUp-modal-button" type="button" class="btn btn-primary" (click)="signUp()">Sign Up</button>
           </div>
           <div class="col-md-6">
-            <button id="sign-in-modal-button" type="button" class="btn btn-primary" (click)="signIn()">Sign In</button>
+            <button id="sign-in-modal-button" type="button" class="btn btn-primary" (click)="signIn(true)">Sign In</button>
           </div>
         </div>
       </div>

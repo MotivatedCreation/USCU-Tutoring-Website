@@ -79,8 +79,8 @@ System.register(['angular2/core', 'angular2/router', './home.component', './tuto
                             component: admin_component_1.Admin
                         },
                         {
-                            path: '/profile',
-                            name: 'Profile',
+                            path: '/account',
+                            name: 'Account',
                             component: profile_component_1.Profile
                         }
                     ]),

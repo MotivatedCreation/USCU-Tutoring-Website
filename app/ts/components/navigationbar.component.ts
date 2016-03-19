@@ -6,8 +6,10 @@ import {Component, View} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http, Headers} from 'angular2/http';
 
-import {Global} from '../global'
+import {Global} from '../global';
 import {AuthenticationModal} from './authentication-modal.component';
+
+import Authentication = require('../services/authentication.service');
 
 @Component({
   selector: 'navigationbar',
@@ -45,25 +47,10 @@ export class Navigationbar
     $('#sign-in-or-signUp-modal').modal('show');
   }
 
-  signOut()
+  public signOut()
   {
-    var service = 'Authentication';
-    var action = 'signOut';
-
-    var request = {'service': service,
-                   'action': action};
-
-    var parameters = 'request=' + encodeURIComponent(JSON.stringify(request));
-
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
-    this.http.post(Global.BASE_URL + '/app/php/api/api.php', parameters, { headers })
-    .subscribe(
-      (result: String) => {
-        location.reload();
-        console.log('[authentication-modal.component] signOut()\n' + JSON.stringify(result, null, 4));
-      }
-    );
+    Authentication.signOut(this.http, (result: string): void => {
+      location.href = Global.BASE_URL;
+    });
   }
 }
