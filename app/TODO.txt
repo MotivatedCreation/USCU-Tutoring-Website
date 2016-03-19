@@ -1,11 +1,12 @@
-- Implement session tracking for sign in.
+- Implement Profile description edit
+- Implement Profile description save
+- Implement adding Profile picture
+- Implement appointments
+- Implement adding classes
 - Implement tutor log backend.
 - Implement tutor schedule backend.
 - Implement tutor list backend.
 - Implement assignments.
 - Implement admin.
-- Implement check in.
-- Implement check out.
 - Implement available tutor.
-- Implement sign out.
 - Prepare for mobile.

@@ -88,17 +88,6 @@ System.register(['angular2/core', 'angular2/http', '../global', '../services/aut
                     }
                     return true;
                 };
-                AuthenticationModal.prototype.signUp = function () {
-                    var _this = this;
-                    if (this.signUpContainsValidData()) {
-                        Authentication.signUp(this.http, this.firstName, this.lastName, this.email, this.password, function (result) {
-                            console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
-                            _this.setEmail(_this.email);
-                            _this.setPassword(_this.password);
-                            _this.signIn(false);
-                        });
-                    }
-                };
                 AuthenticationModal.prototype.signInContainsValidData = function () {
                     if (!this.isUSCUpstateEmail(this.email)) {
                         $('#sign-in-email-input').focus();
@@ -109,6 +98,17 @@ System.register(['angular2/core', 'angular2/http', '../global', '../services/aut
                         return false;
                     }
                     return true;
+                };
+                AuthenticationModal.prototype.signUp = function () {
+                    var _this = this;
+                    if (this.signUpContainsValidData()) {
+                        Authentication.signUp(this.http, this.firstName, this.lastName, this.email, this.password, function (result) {
+                            console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
+                            _this.setEmail(_this.email);
+                            _this.setPassword(_this.password);
+                            _this.signIn(false);
+                        });
+                    }
                 };
                 AuthenticationModal.prototype.signIn = function (shouldValidate) {
                     var _this = this;

@@ -112,20 +112,6 @@ export class AuthenticationModal
     return true;
   }
 
-  signUp()
-  {
-    if (this.signUpContainsValidData())
-    {
-      Authentication.signUp(this.http, this.firstName, this.lastName, this.email, this.password, (result: string): void => {
-        console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
-
-        this.setEmail(this.email);
-        this.setPassword(this.password);
-        this.signIn(false);
-      });
-    }
-  }
-
   signInContainsValidData()
   {
     if (!this.isUSCUpstateEmail(this.email))
@@ -142,6 +128,20 @@ export class AuthenticationModal
     }
 
     return true;
+  }
+  
+  signUp()
+  {
+    if (this.signUpContainsValidData())
+    {
+      Authentication.signUp(this.http, this.firstName, this.lastName, this.email, this.password, (result: string): void => {
+        console.log('[authentication-modal.component] signUp()\n' + JSON.stringify(result, null, 4));
+
+        this.setEmail(this.email);
+        this.setPassword(this.password);
+        this.signIn(false);
+      });
+    }
   }
 
   signIn(shouldValidate: boolean = true)
