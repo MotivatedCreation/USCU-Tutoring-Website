@@ -19,6 +19,18 @@ System.register(['angular2/core'], function(exports_1) {
             Classes = (function () {
                 function Classes() {
                 }
+                Classes.prototype.showAddClassModal = function () {
+                    $("#add-class-modal").modal('show');
+                };
+                Classes.prototype.hideAddClassModal = function () {
+                    $('#add-class-modal').modal('hide');
+                };
+                Classes.prototype.addClass = function () {
+                    this.hideAddClassModal();
+                };
+                Classes.prototype.cancelAddClass = function () {
+                    this.hideAddClassModal();
+                };
                 Classes = __decorate([
                     core_1.Component({
                         selector: 'classes',

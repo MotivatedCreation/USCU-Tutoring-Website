@@ -11,5 +11,23 @@ import {Component, View} from 'angular2/core';
 
 export class Classes
 {
-  
+  showAddClassModal()
+  {
+    $("#add-class-modal").modal('show');
+  }
+
+  hideAddClassModal()
+  {
+    $('#add-class-modal').modal('hide');
+  }
+
+  addClass()
+  {
+    this.hideAddClassModal();
+  }
+
+  cancelAddClass()
+  {
+    this.hideAddClassModal();
+  }
 }
