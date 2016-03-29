@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './home.component', './tutor-log.component', './tutor-schedule.component', './tutors.component', './assignments.component', './admin.component', './profile.component', './navigationbar.component'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './home.component', './tutor-log.component', './tutor-schedule.component', './tutors.component', './assignments.component', './admin.component', './account.component', './navigationbar.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './home.component', './tuto
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, home_component_1, tutor_log_component_1, tutor_schedule_component_1, tutors_component_1, assignments_component_1, admin_component_1, profile_component_1, navigationbar_component_1;
+    var core_1, router_1, home_component_1, tutor_log_component_1, tutor_schedule_component_1, tutors_component_1, assignments_component_1, admin_component_1, account_component_1, navigationbar_component_1;
     var App;
     return {
         setters:[
@@ -36,8 +36,8 @@ System.register(['angular2/core', 'angular2/router', './home.component', './tuto
             function (admin_component_1_1) {
                 admin_component_1 = admin_component_1_1;
             },
-            function (profile_component_1_1) {
-                profile_component_1 = profile_component_1_1;
+            function (account_component_1_1) {
+                account_component_1 = account_component_1_1;
             },
             function (navigationbar_component_1_1) {
                 navigationbar_component_1 = navigationbar_component_1_1;
@@ -79,9 +79,9 @@ System.register(['angular2/core', 'angular2/router', './home.component', './tuto
                             component: admin_component_1.Admin
                         },
                         {
-                            path: '/account',
+                            path: '/account/...',
                             name: 'Account',
-                            component: profile_component_1.Profile
+                            component: account_component_1.Account
                         }
                     ]),
                     core_1.Component({

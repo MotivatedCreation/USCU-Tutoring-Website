@@ -1,20 +1,6 @@
 <?php session_start(); ?>
 
 <div id="content-container" class="container-fluid">
-
-  <div id="profile-menu-content-container" class="list-group pull-left">
-    <button id="profile-menu-profile-button" type="button" class="list-group-item active">Profile</button>
-    <button id="profile-menu-appointments-button" type="button" class="list-group-item">Appointments</button>
-    <?php if ($_SESSION['user']['accountType'] == 2): ?>
-      <button id="profile-menu-teacherassignments-button" type="button" class="list-group-item">Assignments</button>
-    <?php endif; ?>
-    <button id="profile-menu-classes-button" type="button" class="list-group-item">Classes</button>
-    <?php if ($_SESSION['user']['accountType'] == 1): ?>
-      <button id="profile-menu-schedule-button" type="button" class="list-group-item">Schedule</button>
-      <button id="profile-menu-timelog-button" type="button" class="list-group-item">Time Log</button>
-    <?php endif; ?>
-  </div>
-
   <div id="content-container" class="container-fluid">
     <div id="profile-media-content-container" class="media">
       <div class="media-left">
@@ -33,5 +19,4 @@
       </div>
     </div>
   </div>
-
 </div>

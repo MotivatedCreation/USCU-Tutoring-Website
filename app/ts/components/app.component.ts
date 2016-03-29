@@ -7,7 +7,8 @@ import {TutorSchedule} from './tutor-schedule.component';
 import {Tutors} from './tutors.component';
 import {Assignments} from './assignments.component';
 import {Admin} from './admin.component';
-import {Profile} from './profile.component';
+import {Account} from './account.component';
+import {Appointments} from './appointments.component';
 import {Navigationbar} from './navigationbar.component';
 
 @RouteConfig([
@@ -42,9 +43,9 @@ import {Navigationbar} from './navigationbar.component';
     component: Admin
   },
   {
-    path: '/account',
+    path: '/account/...',
     name: 'Account',
-    component: Profile
+    component: Account
   }
 ])
 
