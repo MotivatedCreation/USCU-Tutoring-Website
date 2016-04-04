@@ -20,6 +20,7 @@ System.register(['angular2/core'], function(exports_1) {
                 function Global() {
                 }
                 Global.BASE_URL = 'http://usc.local';
+                Global.API_URL = Global.BASE_URL + '/app/php/api/api.php';
                 Global = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

@@ -8,7 +8,6 @@ import {Tutors} from './tutors.component';
 import {Assignments} from './assignments.component';
 import {Admin} from './admin.component';
 import {Account} from './account.component';
-import {Appointments} from './appointments.component';
 import {Navigationbar} from './navigationbar.component';
 
 @RouteConfig([

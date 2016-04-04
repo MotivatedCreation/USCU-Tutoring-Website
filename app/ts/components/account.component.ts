@@ -5,7 +5,6 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {Profile} from './profile.component';
 import {Classes} from './classes.component';
-import {Appointments} from './appointments.component';
 
 @RouteConfig([
   {
@@ -18,11 +17,6 @@ import {Appointments} from './appointments.component';
     path: '/classes',
     name: 'Classes',
     component: Classes
-  },
-  {
-    path: '/appointments',
-    name: 'Appointments',
-    component: Appointments
   }
 ])
 

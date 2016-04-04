@@ -1,15 +1,8 @@
-System.register(['angular2/http', '../global'], function(exports_1) {
-    var http_1, global_1;
-    function requestWithActionAndParameters(action, actionParameters) {
-        var service = 'Authentication';
-        var request = { 'service': service,
-            'action': action,
-            'parameters': actionParameters };
-        return 'request=' + encodeURIComponent(JSON.stringify(request));
-    }
-    exports_1("requestWithActionAndParameters", requestWithActionAndParameters);
+System.register(['angular2/http', '../global', '../services/service'], function(exports_1) {
+    var http_1, global_1, Service;
+    var Authentication;
     function signUp(http, firstName, lastName, email, password, callback) {
-        var request = this.requestWithActionAndParameters('signUp', {
+        var request = Service.requestServiceWithActionAndParameters(Authentication.SERVICE, 'signUp', {
             'email': email,
             'password': password,
             'firstName': firstName,
@@ -17,7 +10,7 @@ System.register(['angular2/http', '../global'], function(exports_1) {
         });
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        http.post(global_1.Global.BASE_URL + '/app/php/api/api.php', request, { headers: headers })
+        http.post(global_1.Global.API_URL, request, { headers: headers })
             .subscribe(function (result) {
             console.log('[authentication.service] signUp()');
             callback(result);
@@ -25,13 +18,13 @@ System.register(['angular2/http', '../global'], function(exports_1) {
     }
     exports_1("signUp", signUp);
     function signIn(http, email, password, callback) {
-        var request = this.requestWithActionAndParameters('signIn', {
+        var request = Service.requestServiceWithActionAndParameters(Authentication.SERVICE, 'signIn', {
             'email': email,
             'password': password
         });
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        http.post(global_1.Global.BASE_URL + '/app/php/api/api.php', request, { headers: headers })
+        http.post(global_1.Global.API_URL, request, { headers: headers })
             .subscribe(function (result) {
             console.log('[authentication.service] signIn()');
             callback(result);
@@ -39,10 +32,10 @@ System.register(['angular2/http', '../global'], function(exports_1) {
     }
     exports_1("signIn", signIn);
     function signOut(http, callback) {
-        var request = this.requestWithActionAndParameters('signOut', null);
+        var request = Service.requestServiceWithActionAndParameters(Authentication.SERVICE, 'signOut', null);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        http.post(global_1.Global.BASE_URL + '/app/php/api/api.php', request, { headers: headers })
+        http.post(global_1.Global.API_URL, request, { headers: headers })
             .subscribe(function (result) {
             console.log('[authentication.service] signOut()');
             callback(result);
@@ -56,8 +49,18 @@ System.register(['angular2/http', '../global'], function(exports_1) {
             },
             function (global_1_1) {
                 global_1 = global_1_1;
+            },
+            function (Service_1) {
+                Service = Service_1;
             }],
         execute: function() {
+            Authentication = (function () {
+                function Authentication() {
+                }
+                Authentication.SERVICE = "Authentication";
+                return Authentication;
+            })();
+            exports_1("Authentication", Authentication);
         }
     }
 });

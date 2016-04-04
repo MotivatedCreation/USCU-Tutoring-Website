@@ -2,20 +2,16 @@ import {Http, Headers} from 'angular2/http';
 
 import {Global} from '../global'
 
-export function requestWithActionAndParameters(action: string, actionParameters: {})
+import Service = require('../services/service');
+
+export class Authentication
 {
-  var service = 'Authentication';
-
-  var request = {'service': service,
-                 'action': action,
-                 'parameters': actionParameters};
-
-  return 'request=' + encodeURIComponent(JSON.stringify(request));
+  static SERVICE = "Authentication";
 }
 
 export function signUp(http: Http, firstName: string, lastName: string, email: string, password: string, callback: (result: string) => any)
 {
-  var request = this.requestWithActionAndParameters('signUp', {
+  var request = Service.requestServiceWithActionAndParameters(Authentication.SERVICE, 'signUp', {
     'email': email,
     'password': password,
     'firstName': firstName,
@@ -25,7 +21,7 @@ export function signUp(http: Http, firstName: string, lastName: string, email: s
   var headers = new Headers();
   headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-  http.post(Global.BASE_URL + '/app/php/api/api.php', request, { headers })
+  http.post(Global.API_URL, request, { headers })
   .subscribe(
     (result: string) => {
       console.log('[authentication.service] signUp()');
@@ -37,7 +33,7 @@ export function signUp(http: Http, firstName: string, lastName: string, email: s
 
 export function signIn(http: Http, email: string, password: string, callback: (result: string) => any)
 {
-  var request = this.requestWithActionAndParameters('signIn', {
+  var request = Service.requestServiceWithActionAndParameters(Authentication.SERVICE, 'signIn', {
     'email': email,
     'password': password
   });
@@ -45,7 +41,7 @@ export function signIn(http: Http, email: string, password: string, callback: (r
   var headers = new Headers();
   headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-  http.post(Global.BASE_URL + '/app/php/api/api.php', request, { headers })
+  http.post(Global.API_URL, request, { headers })
   .subscribe(
     (result: string) => {
       console.log('[authentication.service] signIn()');
@@ -57,12 +53,12 @@ export function signIn(http: Http, email: string, password: string, callback: (r
 
 export function signOut(http: Http, callback: (result: string) => any)
 {
-  var request = this.requestWithActionAndParameters('signOut', null);
+  var request = Service.requestServiceWithActionAndParameters(Authentication.SERVICE, 'signOut', null);
 
   var headers = new Headers();
   headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-  http.post(Global.BASE_URL + '/app/php/api/api.php', request, { headers })
+  http.post(Global.API_URL, request, { headers })
   .subscribe(
     (result: string) => {
       console.log('[authentication.service] signOut()');

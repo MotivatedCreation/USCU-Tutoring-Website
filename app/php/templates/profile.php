@@ -12,10 +12,10 @@
         <br />
         <label id="account-type-label">Account Type</label>
         <br />
-        <button id="edit-description-button" class="btn btn-primary btn-sm">Edit</button>
-        <button id="save-description-button" class="btn btn-success btn-sm">Save</button>
+        <button id="edit-description-button" class="btn btn-primary btn-sm" (click)="editDescription()">Edit</button>
+        <button id="save-description-button" class="btn btn-success btn-sm" (click)="saveDescription()">Save</button>
         <br />
-        <textarea id="profile-description-well" class="well well-sm" readonly="true">Add a description...</textarea>
+        <textarea id="profile-description-well" class="well well-sm" readonly="true" #description (keyup)="setDescription(description.value)"><?php echo $_SESSION['user']['description'] ?></textarea>
       </div>
     </div>
   </div>

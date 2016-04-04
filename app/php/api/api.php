@@ -1,6 +1,7 @@
 <?php
 
 include_once 'Authentication.php';
+include_once 'Account.php';
 
 try {
   $db_name  = 'tutoring_services_db';
@@ -46,6 +47,11 @@ function serviceForServiceType($serviceType)
   {
     case 'Authentication': {
       $service = Authentication::class;
+    }
+    break;
+
+    case 'Account': {
+      $service = Account::class;
     }
     break;
 

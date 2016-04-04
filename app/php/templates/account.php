@@ -2,7 +2,6 @@
 
 <div id="account-menu-content-container" class="list-group pull-left">
   <button [routerLink]="['Profile']" id="account-menu-profile-button" type="button" class="list-group-item active" (click)="activateMenuItem('account-menu-profile-button')">Profile</button>
-  <button [routerLink]="['Appointments']" id="account-menu-appointments-button" type="button" class="list-group-item" (click)="activateMenuItem('account-menu-appointments-button')">Appointments</button>
   <?php if ($_SESSION['user']['accountType'] == 2): ?>
     <button [routerLink]="['Assignments']" id="account-menu-assignments-button" type="button" class="list-group-item" (click)="activateMenuItem('account-menu-assignments-button')">Assignments</button>
   <?php endif; ?>
