@@ -49,7 +49,7 @@ export class Profile
     $('#edit-description-button').show();
     $('#save-description-button').hide();
     $('#profile-description-well').prop('readonly', true);
-    $('#profile-description-well').css('background-color', 'rgb(245,245,245)');
+    $('#profile-description-well').css('background-color', 'rgb(245, 245, 245)');
 
     if (this.description.length > 0)
     {

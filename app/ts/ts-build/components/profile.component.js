@@ -43,7 +43,7 @@ System.register(['angular2/core', 'angular2/http', '../services/account.service'
                     $('#edit-description-button').show();
                     $('#save-description-button').hide();
                     $('#profile-description-well').prop('readonly', true);
-                    $('#profile-description-well').css('background-color', 'rgb(245,245,245)');
+                    $('#profile-description-well').css('background-color', 'rgb(245, 245, 245)');
                     if (this.description.length > 0) {
                         Account.saveDescription(this.http, this.description, function (result) {
                             console.log('[profile.component] saveDescription()\n' + JSON.stringify(result, null, 4));
