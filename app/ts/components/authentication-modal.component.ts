@@ -129,7 +129,7 @@ export class AuthenticationModal
 
     return true;
   }
-  
+
   signUp()
   {
     if (this.signUpContainsValidData())

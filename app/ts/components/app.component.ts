@@ -22,7 +22,7 @@ import {Navigationbar} from './navigationbar.component';
     component: TutorLog
   },
   {
-    path: '/tutor_schedule',
+    path: '/tutor-schedule',
     name: 'TutorSchedule',
     component: TutorSchedule
   },

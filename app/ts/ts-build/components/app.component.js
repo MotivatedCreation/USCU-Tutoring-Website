@@ -59,7 +59,7 @@ System.register(['angular2/core', 'angular2/router', './home.component', './tuto
                             component: tutor_log_component_1.TutorLog
                         },
                         {
-                            path: '/tutor_schedule',
+                            path: '/tutor-schedule',
                             name: 'TutorSchedule',
                             component: tutor_schedule_component_1.TutorSchedule
                         },

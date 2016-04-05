@@ -5,6 +5,8 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {Profile} from './profile.component';
 import {Classes} from './classes.component';
+import {Schedule} from './schedule.component';
+import {TimeLog} from './time-log.component';
 
 @RouteConfig([
   {
@@ -17,6 +19,16 @@ import {Classes} from './classes.component';
     path: '/classes',
     name: 'Classes',
     component: Classes
+  },
+  {
+    path: '/schedule',
+    name: 'Schedule',
+    component: Schedule
+  },
+  {
+    path: '/time-log',
+    name: 'TimeLog',
+    component: TimeLog
   }
 ])
 

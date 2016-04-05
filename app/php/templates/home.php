@@ -1,4 +1,30 @@
+<?php session_start(); ?>
+
 <div id="content-container" class="container-fluid">
+
+<?php if (isset($_SESSION['user']) && $_SESSION['user']['accountType'] >= 1): ?>
+  <div id="post-editor" class="panel panel-default">
+    <div class="panel-body">
+      <textarea style="width: 100%;" class="well" placeholder="What's going on in the tutoring lab today?"></textarea>
+      <div class="pull-right">
+        <div class="btn-group" role="group">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Normal
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Normal</a></li>
+            <li><a href="#">Good News</a></li>
+            <li><a href="#">Warning</a></li>
+            <li><a href="#">Important</a></li>
+            <li><a href="#">Note</a></li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-primary">Post</button>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>
 
   <div id="post" class="panel panel-default">
     <div class="panel-body">

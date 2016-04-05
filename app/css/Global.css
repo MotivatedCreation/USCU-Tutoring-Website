@@ -22,6 +22,11 @@ footer {
 	background: rgba(240, 240, 240, 0.45);
 }
 
+#post-editor {
+  margin-left: 220px;
+  margin-right: 220px;
+}
+
 #post {
   margin: 20px;
 }

@@ -1,5 +1,7 @@
 /// <reference path="../libraries/jquery.d.ts" />
-System.register(['angular2/core', 'angular2/router', './profile.component', './classes.component'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './profile.component', './classes.component', './schedule.component', './time-log.component'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,7 +11,7 @@ System.register(['angular2/core', 'angular2/router', './profile.component', './c
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, profile_component_1, classes_component_1;
+    var core_1, router_1, profile_component_1, classes_component_1, schedule_component_1, time_log_component_1;
     var Account;
     return {
         setters:[
@@ -24,6 +26,12 @@ System.register(['angular2/core', 'angular2/router', './profile.component', './c
             },
             function (classes_component_1_1) {
                 classes_component_1 = classes_component_1_1;
+            },
+            function (schedule_component_1_1) {
+                schedule_component_1 = schedule_component_1_1;
+            },
+            function (time_log_component_1_1) {
+                time_log_component_1 = time_log_component_1_1;
             }],
         execute: function() {
             Account = (function () {
@@ -53,6 +61,16 @@ System.register(['angular2/core', 'angular2/router', './profile.component', './c
                             path: '/classes',
                             name: 'Classes',
                             component: classes_component_1.Classes
+                        },
+                        {
+                            path: '/schedule',
+                            name: 'Schedule',
+                            component: schedule_component_1.Schedule
+                        },
+                        {
+                            path: '/time-log',
+                            name: 'TimeLog',
+                            component: time_log_component_1.TimeLog
                         }
                     ]),
                     core_1.Component({
@@ -64,7 +82,7 @@ System.register(['angular2/core', 'angular2/router', './profile.component', './c
                     __metadata('design:paramtypes', [])
                 ], Account);
                 return Account;
-            })();
+            }());
             exports_1("Account", Account);
         }
     }

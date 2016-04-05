@@ -1,12 +1,14 @@
 import {Http, Headers} from 'angular2/http';
 
-import {Global} from '../global'
+import {Global} from '../global';
+import {User} from '../models/user.model';
 
 import Service = require('../services/service');
 
 export class Authentication
 {
   static SERVICE = "Authentication";
+  static USER: User;
 }
 
 export function signUp(http: Http, firstName: string, lastName: string, email: string, password: string, callback: (result: string) => any)
